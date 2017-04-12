@@ -7,7 +7,7 @@ class Config
 	
 	public static function get($file = null)
 	{
-		if($file) {
+		if(is_file($file)) {
 			$items = require_once 'config/'.$file.'.php';
 			return $items;
 		}
