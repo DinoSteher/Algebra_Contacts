@@ -7,11 +7,13 @@ class Config
 	
 	public static function get($file = null)
 	{
-		if(is_file($file)) {
-			$items = require_once 'config/'.$file.'.php';
-			return $items;
-		}
 		
+		if($file){
+			$filename = 'config/'.$file.'.php';
+			if(is_file($filename)){
+				return require_once 'config/'.$file.'.php';
+			}
 		return false;
+		}
 	}
 }
